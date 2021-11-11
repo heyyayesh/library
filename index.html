@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&family=Roboto:wght@100;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="header">
+        <img src="./img/logo.png" alt="logo">   
+        <button class="login-btn">Log in</button>
+    </div>
+    <main>
+        <div class="container">
+            
+        </div> 
+        <div class="modal">
+            <div class="overlay"></div>
+            <div class="popup">
+                <h2>Add a New Book</h2>
+                <input type="text" name="book-name" id="book-name" placeholder="Name of the book" required>
+                <input type="text" name="author-name" id="author-name" placeholder="Author Name" required>
+                <input type="number" name="pages" id="pages" placeholder="No of pages" required>
+                <span class="read-status">
+                    <label for="read-status">Read?</label>
+                    <input type="checkbox" name="read-status" id="read-status">
+                </span>
+                <button type="submit" class="submit">Submit</button>
+            </div>
+        </div>
+        <button class="new-book">+</button>
+    </main>
+    <footer>Copyrights c 2021 @heyyayesh</footer>
+</body>
+</html>
