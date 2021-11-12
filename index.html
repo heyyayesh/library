@@ -13,29 +13,31 @@
 </head>
 <body>
     <div class="header">
-        <img src="./img/logo.png" alt="logo">   
-        <button class="login-btn">Log in</button>
+        <div class="logo">
+            <img src="./img/logo.png" alt="logo">   
+            <h1 class="logo-txt">Library</h1>
+        </div>
+        <button class="menu"></button>
     </div>
     <main>
-        <div class="container">
-            
-        </div> 
         <div class="modal">
             <div class="overlay"></div>
             <div class="popup">
                 <h2>Add a New Book</h2>
-                <input type="text" name="book-name" id="book-name" placeholder="Name of the book" required>
+                <input type="text" name="book-name" id="book-name" placeholder="Name of the book" required autofocus>
                 <input type="text" name="author-name" id="author-name" placeholder="Author Name" required>
                 <input type="number" name="pages" id="pages" placeholder="No of pages" required>
                 <span class="read-status">
                     <label for="read-status">Read?</label>
                     <input type="checkbox" name="read-status" id="read-status">
                 </span>
-                <button type="submit" class="submit">Submit</button>
+                <button type="submit" class="submit" id="submit-btn">Submit</button>
             </div>
         </div>
+        <div class="container">
+            Empty Library! Add new books to your library by clicking the '+' button
+        </div> 
         <button class="new-book">+</button>
     </main>
-    <footer>Copyrights c 2021 @heyyayesh</footer>
 </body>
 </html>
