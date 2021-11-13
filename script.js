@@ -5,6 +5,25 @@ const bookName = document.getElementById('book-name');
 const authorName = document.getElementById('author-name');
 const pages = document.getElementById('pages');
 const readStatus = document.getElementById('read-status');
+const menu = document.querySelector('.menu');
+const totalBooks = document.getElementById('total-books');
+const totalReadBooks = document.getElementById('total-read-books');
+const totalPages = document.getElementById('total-pages');
+const totalReadPages = document.getElementById('total-read-pages');
+const clearLibBtn = document.getElementById('clear-lib');
+
+let readCount = () => {
+    let readBooks = 0, pagesRead = 0, pages = 0;
+    myLibrary.forEach((element) => {
+        pages += Number(element.pages);
+        if(element.readStatus == true){
+            readBooks++;
+            pagesRead += Number(element.pages);
+        }
+    });
+    return [readBooks, pagesRead, pages];
+}
+
 displayLibrary(getLibrary());
 
 function Book(name, author, pages, readStatus){
@@ -20,10 +39,24 @@ function addBookToLibrary(book, myLibrary){
 
 function displayLibrary(myLibrary){
     containerDiv.innerHTML = '';
+
+    if(myLibrary.length == 0){
+        const emptyMsg = document.createElement('div');
+        emptyMsg.id = 'empty-msg'
+        emptyMsg.classList.add('empty-msg');
+        containerDiv.appendChild(emptyMsg);
+        emptyMsg.addEventListener('click', () => {
+            popup.classList.add('active');
+            overlay.classList.add('active');
+        });
+    }
+    
     myLibrary.forEach(book => {
         book.index = myLibrary.indexOf(book);
         containerDiv.appendChild(createCard(book));
     });
+
+    updateMenu();
 }
 
 function createCard(Book){
@@ -82,6 +115,7 @@ newBookBtn.addEventListener('click', () => {
 });
 
 overlay.addEventListener('click', () => {
+    menu.classList.remove('active');
     clearPopup();
 })
 
@@ -89,6 +123,11 @@ const submitBtn = document.getElementById('submit-btn');
 submitBtn.addEventListener('click', () => {  
     if(bookName.value == '' || authorName.value == '' || pages.value == ''){
         alert('Please input all the fields!');
+        return;
+    }
+
+    if(pages.value <= 0){
+        alert('Please input valid no. of pages!');
         return;
     }
          
@@ -127,7 +166,7 @@ document.body.addEventListener('click', (e) => {
         storeLibrary();
         displayLibrary(myLibrary);
     }
-})
+});
 
 function storeLibrary(){
     localStorage.setItem("library", JSON.stringify(myLibrary));
@@ -138,3 +177,28 @@ function getLibrary(){
     lib = JSON.parse(localStorage.getItem("library") || "[]");
     return lib;
 }
+
+const menuBtn = document.querySelector('.menu-btn');
+menuBtn.addEventListener('click', () => {
+    menu.classList.add('active');
+    overlay.classList.add('active');
+});
+
+const menuCloseBtn = document.getElementById('menu-close');
+menuCloseBtn.addEventListener('click', () => {
+    overlay.classList.remove('active');
+    menu.classList.remove('active');
+});
+
+function updateMenu(){
+    totalBooks.textContent = `Total no. of books : ${myLibrary.length}`;
+    totalReadBooks.textContent = `Total no. of books read : ${readCount()[0]}`;
+    totalReadPages.textContent = `Total no. of pages read : ${readCount()[1]}`;
+    totalPages.textContent = `Total no. of pages : ${readCount()[2]}`;
+}
+
+clearLibBtn.addEventListener('click', () =>{
+    myLibrary.splice(0, myLibrary.length);
+    storeLibrary();
+    displayLibrary(myLibrary);
+});

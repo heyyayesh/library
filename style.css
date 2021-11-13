@@ -23,7 +23,6 @@ body{
     border-bottom: 5px solid #4e191e;
     width: 100vw;
     padding: 0 5vw;
-
 }
 
 .logo{
@@ -37,12 +36,17 @@ body{
     color: #4e191e;
 }
 
-.menu{
+.menu-btn{
     background: url(./img/menu.svg);
     width: 30px;
     height: 30px;
     border: none;
     background-size: cover;
+}
+
+.menu-btn:hover{
+    border: 2px solid #fac629;
+    border-radius: 5px;
 }
 
 img{
@@ -59,7 +63,6 @@ img{
     flex-wrap: wrap;
     gap: 2rem;
     justify-content: center;
-    
 }
 
 .card{
@@ -224,4 +227,133 @@ img{
 
 .popup .submit:active{
     box-shadow: none;
+}
+
+.empty-msg{
+    background: url(./img/add.svg);
+    width: 50vw;
+    height: 50vw;
+    max-width: 500px;
+    max-height: 500px;
+    background-size: cover;
+    opacity: 0.08;
+    position: absolute;
+    top: 25vh;
+    border-radius: 50%;
+}
+
+.menu{
+    background-color: #ffbf00;
+    min-width: 400px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border-top-left-radius: 3%;
+    border-bottom-left-radius: 3%;
+    z-index: 2;
+    transform: translateX(100%);
+    transition: transform 100ms ease-in;
+}
+
+.menu .heading{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: 32px;
+    color: #4e191e;
+    border-bottom: 3px solid #4e191e;
+    padding: 19px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+#menu-close{
+    background: url(./img/close.svg);
+    width: 20px;
+    height: 20px;
+    background-size: cover;
+    border: 1px solid;
+    border-radius: 20%;
+    position: absolute;
+    left: 15px;
+    cursor: pointer;
+}
+
+.menu-top{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.menu-bottom{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    padding: 12px;
+}
+
+#clear-lib{
+    font-size: 22px;
+    background: #FE8A7E;
+    border: none;
+    border-radius: 8px;
+    padding: 8px;
+    transition: font-size 100ms ease-out;
+    cursor: pointer;
+}
+
+#clear-lib:hover{
+    font-size: 24px;
+    background: red;
+}
+
+.menu-body{
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    padding: 12px;
+    gap: 8px;
+}
+
+.menu-footer{
+    font-size: 18px;
+}
+
+.menu-footer a{
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+
+.menu-footer a:hover{
+    color: blue;
+}
+
+.menu.active{
+    transform: translateX(0%);
+}
+
+@media only screen and (max-width: 500px){
+    .empty-msg{
+        top: 40vh;
+    }
+    .menu{
+        min-width: 80vw;
+    }
+    .popup{
+        width: 330px;
+    }
+    #menu-close{
+        left: 5px;
+    }
 }

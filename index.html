@@ -17,7 +17,7 @@
             <img src="./img/logo.png" alt="logo">   
             <h1 class="logo-txt">Library</h1>
         </div>
-        <button class="menu"></button>
+        <button class="menu-btn"></button>
     </div>
     <main>
         <div class="modal">
@@ -35,9 +35,33 @@
             </div>
         </div>
         <div class="container">
-            Empty Library! Add new books to your library by clicking the '+' button
+            
         </div> 
         <button class="new-book">+</button>
     </main>
+    <div class="sidebar">
+        <div class="overlay"></div>
+        <div class="menu">
+            <div class="menu-top">
+                <div class="heading">
+                    <p>Information Desk</p>
+                    <button id="menu-close"></button>
+                </div>
+                <div class="menu-body">
+                    <span id="total-books">Total no. of books :</span>
+                    <span id="total-read-books">Total books read :</span>
+                    <span id="total-pages">Total no. of pages :</span>
+                    <span id="total-read-pages">Total pages read :</span>
+                </div>
+            </div>
+            <div class="menu-bottom">
+                <button id="clear-lib">&#9888 Clear Library &#9888</button>
+                <div class="menu-footer">
+                    Created by <a href="https://www.github.com/heyyayesh">@heyyayesh</a>
+                </div>
+            </div>
+            
+        </div>
+    </div>
 </body>
 </html>
