@@ -26,11 +26,13 @@ let readCount = () => {
 
 displayLibrary(getLibrary());
 
-function Book(name, author, pages, readStatus){
-    this.name = name;
-    this.author = author;
-    this.pages = pages;
-    this.readStatus = readStatus;
+class Book {
+    constructor(name, author, pages, readStatus) {
+        this.name = name;
+        this.author = author;
+        this.pages = pages;
+        this.readStatus = readStatus;
+    }
 }
 
 function addBookToLibrary(book, myLibrary){
